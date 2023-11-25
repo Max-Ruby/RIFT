@@ -1,0 +1,80 @@
+/* Style the sidebar - fixed full height */
+.sidebar {
+  height: 100%;
+  width: 350px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  overflow-x: hidden;
+  padding-top: 8px;
+  padding-bottom: 20px;
+  font-family: 'Courier New', monospace;
+  color: #00FF40;
+}
+
+/* Style sidebar links */
+.sidebar a {
+  padding: 8px 8px 8px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  font-family: 'Courier New', monospace;
+}
+
+/* Style links on mouse-over */
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+/* Style the main content */
+.main {
+  margin-left: 350px; /* Same as the width of the sidenav */
+  padding: 10px 10px;
+  background-color: #000000;
+  outline: 10000px solid black;
+  color: #00FF40;
+  font-family: 'Courier New', monospace;
+}
+
+.main:before {
+    background-color:#000000;
+    position: absolute;
+    height: 100%;
+    width: 40000px;
+    left: -40000px;
+    z-index: -1;
+}
+
+
+
+input[type=button],
+input[type=file],
+input[type=submit],
+.button {
+        background-color: #00FF40;
+        font-family: 'Courier New', monospace;
+        border: none;
+        color: #000;
+        padding: 8px 8px 8px 16px;
+        text-decoration: none;
+        margin: 2px 2px;
+        cursor: pointer;
+        width: 350px;
+}
+
+.button1 {width:350px;}
+
+.button2 {width:350px; margin:-14px 2px} /* This is used only for the first tool to move it up. */
+
+.button3 {width:350px; margin:14px 0px 2px 2px}
+
+.button4 {width:350px; margin:-14px 14px 2px 2px}
+
+/* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}

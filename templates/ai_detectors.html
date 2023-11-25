@@ -1,0 +1,85 @@
+<html>
+   <head>
+      <title>Clone Detection</title>
+      	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+   </head>
+   <body>
+
+<div class="sidebar">
+    <img src="static/logo.png">
+
+<p>Upload Image:</p>
+<form action = "/toolhub" method = "post" enctype="multipart/form-data">
+	<input type="file" name="file" />
+	<input type = "submit" value="Click to Upload Selected Image">
+</form>
+
+<p>Noise Analysis:</p>
+
+<form action = "/ela" method = "post" enctype="multipart/form-data">
+	<button class="button button1">Error Level Analysis</button>
+</form>
+
+<form action = "/noise_gauss" method = "post" enctype="multipart/form-data">
+	<button class="button button2">Gaussian Noise Noise Analysis</button>
+</form>
+
+<form action = "/noise_median" method = "post" enctype="multipart/form-data">
+	<button class="button button1">Salt and Pepper Noise Analysis</button>
+</form>
+
+<form action = "/noise_bilateral" method = "post" enctype="multipart/form-data">
+	<button class="button button4">Compression Noise Analysis</button>
+</form>
+
+<p>Clone Detection:</p>
+<form action = "/surf" method = "post" enctype="multipart/form-data">
+	<button class="button button1">Clone Detection</button>
+</form>
+
+<p>Luminance Analysis:</p>
+<form action = "/lum_grad" method = "post" enctype="multipart/form-data">
+	<button class="button button1">Luminance Gradient</button>
+</form>
+
+<form action = "/lum_laplacian" method = "post" enctype="multipart/form-data">
+	<button class="button button4">Luminance Laplacian</button>
+</form>
+
+<p>Metadata:</p>
+
+<form action = "/metadata" method = "post" enctype="multipart/form-data">
+	<button class="button button1">Metadata Extraction</button>
+</form>
+
+<p>Classification-based tools:</p>
+
+<form action = "/ai_detectors" method = "post" enctype="multipart/form-data">
+	<button class="button button1">AI Generation Detection</button>
+</form>
+
+<form action = "/splicing_detectors" method = "post" enctype="multipart/form-data">
+	<button class="button button4">Splicing Detection</button>
+</form>
+
+<p>Information:</p>
+
+<form action = "/tutorial" method = "post" enctype="multipart/form-data">
+	<button class="button button1"> Tutorial</button>
+</form>
+
+<form action = "/contact" method = "post" enctype="multipart/form-data">
+	<button class="button button2"> Contact</button>
+</form>
+
+	  <p>cite plz</p>
+
+</div>
+  <div class="main">
+      <p>Original Image:</p>
+      <img src={{img1}}>
+	  <p>Still working on this.</p>
+  </div>
+   </body>
+
+</html>

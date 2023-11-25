@@ -1,0 +1,118 @@
+<html>
+   <head>
+      <title>Tutorial</title>
+      	<link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+
+   </head>
+   <body>
+  <div class="sidebar">
+      <img src="static/logo.png">
+<p>Upload Image:</p>
+<form action = "/toolhub" method = "post" enctype="multipart/form-data">
+	<input type="file" name="file" />
+	<input type = "submit" value="Click to Upload Selected Image">
+</form>
+
+<p>Noise Analysis:</p>
+
+<form action = "/ela" method = "post" enctype="multipart/form-data">
+	<button class="button button1">Error Level Analysis</button>
+</form>
+
+<form action = "/noise_gauss" method = "post" enctype="multipart/form-data">
+	<button class="button button2">Gaussian Noise Noise Analysis</button>
+</form>
+
+<form action = "/noise_median" method = "post" enctype="multipart/form-data">
+	<button class="button button1">Salt and Pepper Noise Analysis</button>
+</form>
+
+<form action = "/noise_bilateral" method = "post" enctype="multipart/form-data">
+	<button class="button button4">Compression Noise Analysis</button>
+</form>
+
+<p>Clone Detection:</p>
+<form action = "/surf" method = "post" enctype="multipart/form-data">
+	<button class="button button1">Clone Detection</button>
+</form>
+
+<p>Luminance Analysis:</p>
+<form action = "/lum_grad" method = "post" enctype="multipart/form-data">
+	<button class="button button1">Luminance Gradient</button>
+</form>
+
+<form action = "/lum_laplacian" method = "post" enctype="multipart/form-data">
+	<button class="button button4">Luminance Laplacian</button>
+</form>
+
+<p>Metadata:</p>
+
+<form action = "/metadata" method = "post" enctype="multipart/form-data">
+	<button class="button button1">Metadata Extraction</button>
+</form>
+
+<p>Classification-based tools:</p>
+
+<form action = "/ai_detectors" method = "post" enctype="multipart/form-data">
+	<button class="button button1">AI Generation Detection</button>
+</form>
+
+<form action = "/splicing_detectors" method = "post" enctype="multipart/form-data">
+	<button class="button button4">Splicing Detection</button>
+</form>
+
+
+
+<p>Information:</p>
+
+<form action = "/tutorial" method = "post" enctype="multipart/form-data">
+	<button class="button button1"> Tutorial</button>
+</form>
+
+<form action = "/contact" method = "post" enctype="multipart/form-data">
+	<button class="button button2"> Contact</button>
+</form>
+
+	  <p>cite plz</p>
+</div>
+  <div class="main">
+      <p>This is where we list all the methods that we implement.</p>
+      <p>If you're really interested, go read the RIFT whitepaper!</p>
+
+      <h1>Most Explainable:</h1>
+      <p>The most explainable methods allow you to provide an explanation for why you think an image is fake!</p>
+      <p>If you want an explanation you can give to a layman, use those first!</p>
+      <h1>ELA</h1>
+      <p>This highlights differences in JPEG compression rate by taking a difference of the original image and a compressed version.</p>
+      <p>In a real image, similar edges should have similar magnitudes. Similar textures - including flat surfaces - should have similar coloring.</p>
+      <p>In an image which has something spliced in, the spliced portion will often be much brighter or dimmer than the rest of the image!</p>
+      <h1>Noise Analysis</h1>
+      <p>This highlights differences in noise levels by taking a difference of the original image and a filtered image.</p>
+      <p>It's the same idea as the ELA - similar things in the image should have similar noise levels.</p>
+      <p>The different filters correspond to different kinds of noise! Some cameras are noisy in different ways.</p>
+      <p>The gaussian filter is great if you think the camera's kind of normal. This'll pick out the gaussian noise.</p>
+      <p>The median filter is great if you think the camera's super noisy. This'll pick out salt-and-pepper noise.</p>
+      <p>The bilateral filter is good if you think the image was compressed before being altered. This'll pick out compression artifacts.</p>
+      <h1>Clone Detection(todo)</h1>
+      <p>We plan on implementing SURF or ORB. This helps us detect if an image has been faked by copying things.</p>
+      <h1>Luminance Gradient</h1>
+      <p>We plan on implementing the Luminance Gradient. This is a great bread-and-butter tool.</p>
+      <p>First, we can use it to detect if an image is AI generated - it amplifies high frequency noise, which is often present.</p>
+      <p>Second, similarly placed and angled objects should have similar luminance gradients.</p>
+      <h1>Luminance Laplacian</h1>
+      <p>This amplifies high frequency noise more. Can be useful sometimes, but is very situational.</p>
+      <h1>Metadata Extraction</h1>
+      <p>This picks up JPEG metadata, if it was available. It's a very situational tool - most people know to strip this out nowadays. When it hits, you can get real good information out.</p>
+
+      <h1>Less Explainable:</h1>
+      <p>These are more complex. They'll give you a clue, but not an explanation!</p>
+      <p>If these give a positive, then they're probably right! However, explaining why is difficult.</p>
+      <h1>AI Generation Spotters(todo)</h1>
+      <p>There's a few detectors for this we can use.</p>
+      <h1>Splicing Detectors(todo)</h1>
+      <p>There's also more modern splicing detectors.</p>
+
+
+  </div>
+   </body>
+</html>

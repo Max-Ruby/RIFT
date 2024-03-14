@@ -20,7 +20,7 @@ t_thresh = 0.0625
 
 # First read in the images
 
-image = cv2.imread("test.png", cv2.IMREAD_GRAYSCALE)
+image = cv2.imread("Canon_40D.jpg", cv2.IMREAD_GRAYSCALE)
 
 # Second run Huang
 
@@ -46,9 +46,8 @@ image = image/(np.max(np.max(image)))
 # 3) Apply DCT to each block, and reshape the BxB matrix into a row vector using a "zig-zag scan".
 # I think the zig-zag scan is arbitrary here, and it's not really clear what they mean by this.
 # I'll assume this translates into "raster" ordering.
-# Moreover, I think reshaping it into a row is arbitrary given how they're handling it.
 
-DCT_storage = np.zeros([image.shape[0]//B,image.shape[1]//B,int(p*B*B)+2])
+DCT_storage = np.zeros([(image.shape[0]//B) * (image.shape[1]//B),int(p*B*B)+2])
 
 for i in range(0,image.shape[0]//B):
     for j in range(0,image.shape[1]//B):
@@ -57,13 +56,21 @@ for i in range(0,image.shape[0]//B):
         print(np.min(np.min(np.fabs(DCT_block))))
         DCT_block_flat = np.fabs(DCT_block.flatten())
         DCT_block_flat.sort(axis=0)
+        DCT_block = DCT_block[::-1]
         key = int((1-p)*B*B)
-        DCT_threshold = DCT_block_flat[key]
-        DCT_block_clobber = np.clip(DCT_block,-DCT_threshold,DCT_threshold)
-        DCT_block = DCT_block - DCT_block_clobber
+        DCT_clipped = np.zeros(int(p*B*B) + 2)
+        DCT_clipped[0:int(p*B*B)] = DCT_block_flat[key:B*B]
+        DCT_clipped[-2] = i
+        DCT_clipped[-1] = j
+        print(i)
+        print(j)
+        print((image.shape[1]//B)*i+j)
+        DCT_storage[(image.shape[1]//B)*i+j,:] = DCT_clipped
 
 # 4) Sort lexicographically to form a new matrix, A.
-# Make sure to keep the i,j key attached to the rows.
+# I don't think this is built in to numpy - looks like we're writing our own mergesort here.
+
+print(DCT_storage)
 
 # 5) For each row in A, test the neighboring rows for similarity.
 # It looks like they do this with L_1 norm.

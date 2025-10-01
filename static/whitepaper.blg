@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2025/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: whitepaper.aux
+The style file: plain.bst
+Database file #1: bibliography.bib
+Repeated entry---line 144 of file bibliography.bib
+ : @article{Verdoliva_2020
+ :                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 175 of file bibliography.bib
+ : @misc{frank2020leveraging
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 183 of file bibliography.bib
+ : @misc{thing2023deepfake
+ :                        ,
+I'm skipping whatever remains of this entry
+You've used 13 entries,
+            2118 wiz_defined-function locations,
+            553 strings with 6225 characters,
+and the built_in function-call counts, 3998 in all, are:
+= -- 334
+> -- 291
+< -- 0
++ -- 115
+- -- 102
+* -- 272
+:= -- 688
+add.period$ -- 28
+call.type$ -- 13
+change.case$ -- 90
+chr.to.int$ -- 0
+cite$ -- 13
+duplicate$ -- 99
+empty$ -- 296
+format.name$ -- 102
+if$ -- 805
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 2
+newline$ -- 57
+num.names$ -- 26
+pop$ -- 141
+preamble$ -- 1
+purify$ -- 77
+quote$ -- 0
+skip$ -- 101
+stack$ -- 0
+substring$ -- 111
+swap$ -- 13
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 52
+warning$ -- 0
+while$ -- 29
+width$ -- 15
+write$ -- 112
+(There were 3 error messages)
